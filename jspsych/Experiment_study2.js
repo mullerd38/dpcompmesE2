@@ -242,6 +242,9 @@ var slider = {
     }
     //slider mesure Matute
     if (typeof response === 'undefined') questionText = "To what extent do you think that the medicine has been effective in healing the patients you have seen? <br>";
+    <p style="font-size: 16px;">
+      Your answer is <strong><span id="answer-display"></span></strong>.
+    </p>;
 
     // Only return the question text here
     return `
