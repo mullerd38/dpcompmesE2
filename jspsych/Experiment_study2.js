@@ -37,7 +37,7 @@ var welcome = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h1 class ='custom-title'>Welcome</h1>" +
-    "<p class='instructions'>TEST10 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
+    "<p class='instructions'>TEST11 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
     "<p class='instructions'>We are going to ask you to imagine you are a medical researcher who wants to test the effectiveness of a medicine against a fictitious disease. " +
     "Your task will be to give your opinion on the effectiveness of this medicine.</p>" +
     "<p class='instructions'>If you have any question related to this research, please " +
@@ -242,16 +242,20 @@ var slider = {
   on_load: function() {
     let slider = document.getElementById("jspsych-html-slider-response-response");
     let display = document.getElementById("answer-display");
-
-    // Ensure the answer is hidden until interaction
+  
+    // Hide the answer display initially
     display.style.visibility = "hidden"; 
-
-    slider.addEventListener("input", function() {
-      display.innerText = slider.value;  // Update displayed value
-      display.style.visibility = "visible"; // Make it appear after interaction
-    });
+  
+    // Function to update display
+    function updateDisplay() {
+      display.innerText = slider.value;  // ✅ Correctly update displayed value
+      display.style.visibility = "visible"; // ✅ Make it appear after interaction
+    }
+  
+    // ✅ Trigger on both "input" (move) and "click" (first selection)
+    slider.addEventListener("input", updateDisplay);
+    slider.addEventListener("click", updateDisplay);
   }
-
 };
 
 var conditional_slider = {
