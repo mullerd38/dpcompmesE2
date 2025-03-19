@@ -37,7 +37,7 @@ var welcome = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h1 class ='custom-title'>Welcome</h1>" +
-    "<p class='instructions'>TEST2 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
+    "<p class='instructions'>TEST3 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
     "<p class='instructions'>We are going to ask you to imagine you are a medical researcher who wants to test the effectiveness of a medicine against a fictitious disease. " +
     "Your task will be to give your opinion on the effectiveness of this medicine.</p>" +
     "<p class='instructions'>If you have any question related to this research, please " +
@@ -254,8 +254,14 @@ var slider = {
     let slider = document.getElementById("jspsych-html-slider-response-response");
     let display = document.getElementById("answer-display");
 
-    slider.addEventListener("input", function() {
-      display.innerText = slider.value; // Update displayed value in real time
+        // Hide value until user interacts with the slider
+        let firstInteraction = false;
+
+     slider.addEventListener("input", function() {
+      if (!firstInteraction) {
+        firstInteraction = true;
+      }
+      display.innerText = slider.value; // Show value only when moved
     });
   }
 
