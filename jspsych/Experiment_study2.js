@@ -248,7 +248,7 @@ var slider = {
         <p style="margin-bottom: 1px;">${questionText}</p>
         <p style="font-size: 16px;">Your current answer: <strong><span id="answer-display">1</span></strong></p>`;
   },
-  slider_width: 350 // Keep this as is to control slider size,
+  slider_width: 350 , // Keep this as is to control slider size
 
   on_load: function() {
     let slider = document.getElementById("jspsych-html-slider-response-response");
