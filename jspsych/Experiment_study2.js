@@ -37,7 +37,7 @@ var welcome = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h1 class ='custom-title'>Welcome</h1>" +
-    "<p class='instructions'>TEST7 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
+    "<p class='instructions'>TEST8 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
     "<p class='instructions'>We are going to ask you to imagine you are a medical researcher who wants to test the effectiveness of a medicine against a fictitious disease. " +
     "Your task will be to give your opinion on the effectiveness of this medicine.</p>" +
     "<p class='instructions'>If you have any question related to this research, please " +
@@ -211,15 +211,14 @@ var slider = {
   max: 100,
   step: 1,
   labels: function() {
-    var response = jsPsych.data.get().last().values()[0].response.Q0;
-    if (response != "" && (typeof response !== 'undefined')) {
+    // Ensure labels match the actual min value set by condition
+    if (condition === "two-step") {
       return [
         '1<br>Very small extent', 
         '50<br>Some extent',
         '100<br>Very large extent'
       ];
-    }
-    else {
+    } else {
       return [
         '0<br>Definitely not', 
         '50<br>Quite effective',
