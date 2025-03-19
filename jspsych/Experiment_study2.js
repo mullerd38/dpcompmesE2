@@ -403,7 +403,7 @@ timeline.push(
   welcome,
   consent,
   consigne,
-  procedure_testing
+  //procedure_testing
 );
 
 // Add conditionally chosen timeline
