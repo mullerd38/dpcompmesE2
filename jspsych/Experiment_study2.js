@@ -242,15 +242,23 @@ var slider = {
     }
     //slider mesure Matute
     if (typeof response === 'undefined') questionText = "To what extent do you think that the medicine has been effective in healing the patients you have seen? <br>";
-    <p style="font-size: 16px;">
-      Your answer is <strong><span id="answer-display"></span></strong>.
-    </p>;
 
     // Only return the question text here
     return `
-        <p style="margin-bottom: 1px;">${questionText}</p>`;
+        <p style="margin-bottom: 1px;">${questionText}</p>
+        <p style="font-size: 16px;">Your current answer: <strong><span id="answer-display">1</span></strong></p>`;
   },
-  slider_width: 350 // Keep this as is to control slider size
+  slider_width: 350 // Keep this as is to control slider size,
+  
+  on_load: function() {
+    let slider = document.getElementById("jspsych-html-slider-response-response");
+    let display = document.getElementById("answer-display");
+
+    slider.addEventListener("input", function() {
+      display.innerText = slider.value; // Update displayed value in real time
+    });
+  }
+
 };
 
 var conditional_slider = {
