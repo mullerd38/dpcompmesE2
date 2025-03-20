@@ -155,6 +155,9 @@ var feedback = {
   choices: ['Continue'],
 }
 
+var fastResponses = 0;  // Counter for quick responses
+var maxFastResponses = 3;  // Number of warnings before a stronger message
+
 var procedure_testing = {
   timeline: [loop_pilule, feedback],
   timeline_variables: stim_randomization,
@@ -164,7 +167,23 @@ var procedure_testing = {
     med_score: jsPsych.timelineVariable('med_score'),
     pla_score: jsPsych.timelineVariable('pla_score')
   },
-}
+  on_finish: function(data) {
+    let reactionTime = data.rt;  // Get response time in milliseconds
+    let attentionThreshold = 500;  // Define threshold (e.g., 500ms)
+
+    console.log("Reaction time:", reactionTime);
+
+    if (reactionTime < attentionThreshold) {
+      fastResponses++;  // Increment counter for fast responses
+
+      if (fastResponses >= maxFastResponses) {
+        alert("You have responded too quickly multiple times. Please slow down to pay attention more to what happens for patients.");
+      } else {
+        alert("You are responding too quickly. Please take your time.");
+      }
+    }
+  }
+};
 
 
 //question croyances
