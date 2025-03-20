@@ -179,7 +179,7 @@ var procedure_testing = {
       if (fastResponses >= maxFastResponses) {
         alert("You have responded too quickly multiple times. Please slow down and pay more attention to what happens to the patients.");
       } else {
-        alert("You are responding too quickly. Please take your time.");
+        alert("You are going too quickly. Please take a little more time.");
       }
     }
   }
