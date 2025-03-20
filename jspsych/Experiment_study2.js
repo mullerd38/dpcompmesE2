@@ -37,7 +37,7 @@ var welcome = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
     "<h1 class ='custom-title'>Welcome</h1>" +
-    "<p class='instructions'>TEST Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
+    "<p class='instructions'>TEST300 Thank you for taking part in this survey. <b> Please note that you can only participate from a computer.</b> </p>" +
     "<p class='instructions'>We are going to ask you to imagine you are a medical researcher who wants to test the effectiveness of a medicine against a fictitious disease. " +
     "Your task will be to give your opinion on the effectiveness of this medicine.</p>" +
     "<p class='instructions'>If you have any question related to this research, please " +
@@ -169,7 +169,7 @@ var procedure_testing = {
   },
   on_finish: function(data) {
     let reactionTime = data.rt;  // Get response time in milliseconds
-    let attentionThreshold = 500;  // Define threshold (e.g., 500ms)
+    let attentionThreshold = 300;  // Define threshold (e.g., 500ms)
 
     console.log("Reaction time:", reactionTime);
 
@@ -177,7 +177,7 @@ var procedure_testing = {
       fastResponses++;  // Increment counter for fast responses
 
       if (fastResponses >= maxFastResponses) {
-        alert("You have responded too quickly multiple times. Please slow down to pay attention more to what happens for patients.");
+        alert("You have responded too quickly multiple times. Please slow down and pay more attention to what happens to the patients.");
       } else {
         alert("You are responding too quickly. Please take your time.");
       }
